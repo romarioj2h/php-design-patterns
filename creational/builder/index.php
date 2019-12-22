@@ -9,9 +9,7 @@ $director = new Director();
 $chickenPizza = $director->build(new \Builders\ChickenBuilder());
 $mozzarellaPizza = $director->build(new \Builders\MozzarellaBuilder());
 
-echo "<pre>";
 print_r($chickenPizza);
-echo "</pre>";
-echo "<pre>";
+echo "\n";
 print_r($mozzarellaPizza);
-echo "</pre>";
+echo "\n";
