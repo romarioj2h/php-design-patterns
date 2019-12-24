@@ -10,6 +10,16 @@ class Auth {
      */
     private $observers = [];
 
+    function login() {
+        /** login logic */
+        $this->notify(self::EVENT_LOGIN);
+    }
+
+    function logout() {
+        /** logout logic */
+        $this->notify(self::EVENT_LOGOUT);
+    }
+
     /**
      * @inheritDoc
      */
@@ -22,16 +32,6 @@ class Auth {
      */
     function detach(AuthObserver $observer) {
         unset($this->observers[spl_object_hash($observer)]);
-    }
-
-    function login() {
-        /** login logic */
-        $this->notify(self::EVENT_LOGIN);
-    }
-
-    function logout() {
-        /** logout logic */
-        $this->notify(self::EVENT_LOGOUT);
     }
 
     private function notify(string $event) {

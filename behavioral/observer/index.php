@@ -6,10 +6,11 @@ spl_autoload_register(function ($class_name) {
 });
 
 $auth = new Auth();
-$logger = new LoggerObserver();
-$auth->attach($logger);
 $forumAuth = new ForumAuthObserver();
+$logger = new LoggerObserver();
+
 $auth->attach($forumAuth);
+$auth->attach($logger);
 
 $auth->login();
 $auth->logout();
