@@ -4,24 +4,24 @@
 namespace Bitcoin;
 
 
-abstract class BitcoinResolver {
+abstract class Bitcoin {
 
     /**
-     * @var BitcoinResolver
+     * @var Bitcoin
      */
     private $successor;
 
-    public function __construct(BitcoinResolver $bitcoinResolver = null) {
-        $this->successor = $bitcoinResolver;
+    public function __construct(Bitcoin $bitcoin = null) {
+        $this->successor = $bitcoin;
     }
 
-    final public function resolve(\Cache $cache) {
+    final public function getPrice(\Cache $cache) {
         $usdPrice = $this->getUsdPrice($cache);
         echo get_class($this);
 
         if ($usdPrice === null && $this->successor !== null) {
             echo " can't found it\n";
-            $usdPrice = $this->successor->resolve($cache);
+            $usdPrice = $this->successor->getPrice($cache);
         } else {
             echo " found it\n";
         }

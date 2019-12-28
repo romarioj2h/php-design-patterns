@@ -4,7 +4,7 @@
 namespace Bitcoin;
 
 
-class Cache extends BitcoinResolver {
+class Cache extends Bitcoin {
 
     protected function getUsdPrice(\Cache $cache) {
         return $cache->get('bitcoinPrice');

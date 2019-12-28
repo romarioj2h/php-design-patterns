@@ -4,7 +4,7 @@
 namespace Bitcoin;
 
 
-class Api extends BitcoinResolver {
+class Api extends Bitcoin {
     const API_URL = 'https://api.coinlore.com/api/ticker/?id=90';
 
     protected function getUsdPrice(\Cache $cache) {
